@@ -10,16 +10,16 @@ A web port of [Timespinner](https://store.steampowered.com/app/368620/Timespinne
 
 | Action | Primary Key | Alternate / Controller Equivalent |
 | --- | --- | --- |
-| Movement (Left / Right) | `Left` / `Right` Arrow Keys | D-Pad Left / Right |
-| Duck / Crouch | `Down` Arrow Key | D-Pad Down |
-| Look Up | `Up` Arrow Key | D-Pad Up |
-| Jump | `Spacebar` | `A` Button |
-| Primary Melee / Orb Attack | `Q` | `X` Button (Hold for charge attack) |
-| Secondary / Spell Attack | `W` | `Y` Button (Cast Aura / Spell) |
-| Dash / Forward Dash | `R` | `RB` / Right Bumper |
-| Backdash / Dodge | `D` | `LB` / Left Bumper |
-| Time Stop (Time Spinner) | `E` | `B` Button |
-| Pause Game | `Escape` or `Enter` | `Start` Button |
+| Movement (Left / Right) | `Left` / `Right` Arrow Keys |
+| Duck / Crouch | `Down` Arrow Key |
+| Look Up | `Up` Arrow Key |
+| Jump | `Spacebar` |
+| Primary Melee / Orb Attack | `Q` |
+| Secondary / Spell Attack | `W` | 
+| Dash / Forward Dash | `R` |
+| Backdash / Dodge | `D` |
+| Time Stop (Time Spinner) |
+| Pause Game | `Escape` or `Enter` |
 
 ### Menu Controls
 
