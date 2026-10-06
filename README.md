@@ -27,7 +27,7 @@ A web port of [Timespinner](https://store.steampowered.com/app/368620/Timespinne
 | --- | --- |
 | Navigate Options | Arrow Keys |
 | Confirm / Select | `Enter`, `Spacebar`, or `Q` |
-| Cancel / Back | `Escape` or `E` |
+| Cancel / Back | `Escape`|
 | Switch Tabs / Pages | `Tab` or `D` / `R` |
 
 ---
