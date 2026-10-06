@@ -8,7 +8,7 @@ A web port of [Timespinner](https://store.steampowered.com/app/368620/Timespinne
 
 ### In-Game Controls
 
-| Action | Primary Key | Alternate / Controller Equivalent |
+| Action | Primary Key |
 | --- | --- | --- |
 | Movement (Left / Right) | `Left` / `Right` Arrow Keys |
 | Duck / Crouch | `Down` Arrow Key |
