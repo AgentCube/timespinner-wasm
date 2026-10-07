@@ -1,0 +1,18 @@
+{
+  "magic": "TSPK",
+  "entryCount": 1087,
+  "headerIndexSize": 61266,
+  "payloadSize": 364532423,
+  "totalSize": 364593689,
+  "partSize": 47185920,
+  "parts": [
+    "content.pack.00",
+    "content.pack.01",
+    "content.pack.02",
+    "content.pack.03",
+    "content.pack.04",
+    "content.pack.05",
+    "content.pack.06",
+    "content.pack.07"
+  ]
+}

@@ -1,0 +1,37 @@
+namespace Timespinner.GameObjects.Animations;
+
+public enum EBattleAnimationType
+{
+	Boom,
+	SmallBoom,
+	DustBoom,
+	AuraExplosion,
+	Shrapnel,
+	Poof,
+	ExtinguishSmoke,
+	GlassShatter,
+	SmallHit,
+	SmallGrayHit,
+	MediumHit,
+	BlueOrbHit,
+	BigHit,
+	SmallFail,
+	MediumHitBlue,
+	MediumHitYellow,
+	BigFlash,
+	BigRipple,
+	HPSparkles,
+	MPSparkles,
+	HPCreate,
+	MPCreate,
+	WaterSplash,
+	AcidSplash,
+	Dust,
+	CrackingDust,
+	MediumRecoilDust,
+	Pebbles,
+	OrbDisappear,
+	OrbLevelUpFanfare,
+	WetSplashLarge,
+	WetSplashSmall
+}

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Timespinner</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <DefineConstants>$(DefineConstants);WASM</DefineConstants>
+    <NoWarn>$(NoWarn);CS0618;CS8632;CA1416;SYSLIB0011</NoWarn>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Timespinner/Program.cs" />
+    <None Remove="Microsoft.Xna.Framework.RuntimeProfile" />
+    <EmbeddedResource Include="Microsoft.Xna.Framework.RuntimeProfile" LogicalName="Microsoft.Xna.Framework.RuntimeProfile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="/home/the921691/roguelegacy-wasm/FNA/FNA.Core.csproj" />
+  </ItemGroup>
+</Project>

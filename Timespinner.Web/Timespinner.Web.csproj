@@ -1,0 +1,85 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>Timespinner.Web</AssemblyName>
+    <RootNamespace>Timespinner.Web</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <DefineConstants>$(DefineConstants);WASM</DefineConstants>
+    <NoWarn>$(NoWarn);CS0618;CA1416;IL2070;CA2255;SYSLIB0011</NoWarn>
+    <PublishAot>false</PublishAot>
+    <TrimMode>partial</TrimMode>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+  </PropertyGroup>
+
+  <!-- Prevent reflection-based methods and types from being trimmed -->
+  <ItemGroup>
+    <TrimmerRootAssembly Include="Timespinner" />
+    <TrimmerRootAssembly Include="FNA" />
+    <TrimmerRootAssembly Include="System.IO.Compression" />
+    <TrimmerRootDescriptor Include="TrimmerRoots.xml" />
+  </ItemGroup>
+
+  <!-- WebAssembly / Emscripten linkage -->
+  <PropertyGroup>
+    <WasmMainJSPath>$(MSBuildProjectDirectory)/wwwroot/main.js</WasmMainJSPath>
+    <WasmBuildNative>true</WasmBuildNative>
+    <EmccLinkOptimizationFlag>-O1</EmccLinkOptimizationFlag>
+    <EmccFlags>$(EmccFlags) -DNDEBUG -DSDL_ASSERT_LEVEL=0</EmccFlags>
+    <EmccExtraLDFlags>--js-library $(MSBuildProjectDirectory.Replace('\', '/'))/js/library-fixemscripten.js -sUSE_SDL=0 -sMAX_WEBGL_VERSION=2 -sFULL_ES3 -lidbfs.js -DNDEBUG -DSDL_ASSERT_LEVEL=0</EmccExtraLDFlags>
+    <WasmEmitSymbolMap>true</WasmEmitSymbolMap>
+    <WasmAllowUndefinedSymbols>true</WasmAllowUndefinedSymbols>
+  </PropertyGroup>
+
+  <!-- Native WASM static archives -->
+  <ItemGroup>
+    <NativeFileReference Include="$(MSBuildProjectDirectory)/native/SDL2.a">
+      <Visible>false</Visible>
+    </NativeFileReference>
+    <NativeFileReference Include="$(MSBuildProjectDirectory)/native/FAudio.a">
+      <Visible>false</Visible>
+    </NativeFileReference>
+    <NativeFileReference Include="$(MSBuildProjectDirectory)/native/FNA3D.a">
+      <Visible>false</Visible>
+    </NativeFileReference>
+    <NativeFileReference Include="$(MSBuildProjectDirectory)/native/libmojoshader.a">
+      <Visible>false</Visible>
+    </NativeFileReference>
+  </ItemGroup>
+
+  <!-- Ensure static pinvoke code generation includes SDL2, FNA3D, FAudio, etc. -->
+  <ItemGroup>
+    <_WasmPInvokeModules Include="SDL2" />
+    <_WasmPInvokeModules Include="FAudio" />
+    <_WasmPInvokeModules Include="FNA3D" />
+    <_WasmPInvokeModules Include="mojoshader" />
+    <_WasmPInvokeModules Include="__Native" />
+    <_WasmPInvokeModules Include="__Internal" />
+  </ItemGroup>
+
+  <!-- Emscripten modules exported to JS -->
+  <ItemGroup>
+    <EmccExportedRuntimeMethod Include="SDL" />
+    <EmccExportedRuntimeMethod Include="GL" />
+    <EmccExportedRuntimeMethod Include="FS" />
+    <EmccExportedRuntimeMethod Include="setMainLoop" />
+  </ItemGroup>
+
+  <!-- Project References -->
+  <ItemGroup>
+    <ProjectReference Include="../src/Timespinner/Timespinner.csproj" />
+    <ProjectReference Include="/home/the921691/roguelegacy-wasm/FNA/FNA.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Static web files included in AppBundle output -->
+  <ItemGroup>
+    <WasmExtraFilesToDeploy Include="wwwroot/*" TargetPath="%(Filename)%(Extension)" />
+    <WasmExtraFilesToDeploy Include="wwwroot/assets/**/*" TargetPath="assets/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>
