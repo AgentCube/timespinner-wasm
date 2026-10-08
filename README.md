@@ -18,7 +18,7 @@ A web port of [Timespinner](https://store.steampowered.com/app/368620/Timespinne
 | Secondary / Spell Attack | `W` | 
 | Dash / Forward Dash | `R` |
 | Backdash / Dodge | `D` |
-| Time Stop (Time Spinner) |
+| Time Stop (Time Spinner) | `E` |
 | Pause Game | `Escape` or `Enter` |
 
 ### Menu Controls
